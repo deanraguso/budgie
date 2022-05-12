@@ -1,12 +1,12 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
+import FeatureHero from "./components/FeatureHero";
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        Something
-      </header>
-    </div>
+    <ChakraProvider>
+      <FeatureHero/>
+    </ChakraProvider>
   );
 }
 
