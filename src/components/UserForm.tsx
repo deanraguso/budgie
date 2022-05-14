@@ -1,37 +1,27 @@
-import {
-  chakra,
-  Divider,
-  Flex,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputLeftAddon,
-  InputRightAddon,
-  Stack,
-} from "@chakra-ui/react";
+import { chakra, Divider, Flex, FormControl, Text } from "@chakra-ui/react";
 import { CurrencyCircleDollar } from "phosphor-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import theme from "../theme";
 import { UserFormInputs } from "../types";
+import UserFormField from "./UserFormField";
 
 const UserForm = () => {
   const {
     trigger,
     register,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<UserFormInputs>();
   const onSubmit: SubmitHandler<UserFormInputs> = (data) => console.log(data);
 
+  const fieldErrors = {
+    salary: "What is your yearly before tax salary (AU)?",
+  };
+
   const triggerValidations = () => {
     trigger();
   };
-
-  console.log(watch("salary"));
 
   return (
     <Flex flexDir="column" p={5}>
@@ -48,32 +38,21 @@ const UserForm = () => {
         onKeyUp={triggerValidations}
         isInvalid={errors?.salary != null}
       >
-        <FormLabel htmlFor="salary">
-          What is your yearly before tax salary (AU)?
-        </FormLabel>
-        <Stack spacing={4}>
-          <InputGroup>
-            <InputLeftAddon bg={theme.bg.colours.primaryLight}>
-              <CurrencyCircleDollar
-                fill="solid"
-                size={28}
-                color={theme.colours.green}
-              />
-            </InputLeftAddon>
-            <Input
-              id="salary"
-              isRequired
-              {...register("salary", { required: true })}
+        <UserFormField
+          id="salary"
+          label="What is your yearly before tax salary (AU)?"
+          registerProps={register("salary", { required: true })}
+          error={errors.salary}
+          errorMessage={fieldErrors["salary"]}
+          LeftAddon={
+            <CurrencyCircleDollar
+              fill="solid"
+              size={28}
+              color={theme.colours.green}
             />
-            <InputRightAddon bg={theme.bg.colours.primaryLight}>
-              AUD
-            </InputRightAddon>
-          </InputGroup>
-          <FormErrorMessage>
-            {errors.salary &&
-              "We need to know this lol. Don't worry, we won't store this info!"}
-          </FormErrorMessage>
-        </Stack>
+          }
+          RightAddon={<Text>AUD</Text>}
+        />
         <Divider py={2} />
       </FormControl>
     </Flex>
