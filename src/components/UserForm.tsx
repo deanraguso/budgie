@@ -1,5 +1,6 @@
 import {
   chakra,
+  Divider,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -13,6 +14,7 @@ import {
 import { CurrencyCircleDollar } from "phosphor-react";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import theme from "../theme";
 import { UserFormInputs } from "../types";
 
 const UserForm = () => {
@@ -39,7 +41,7 @@ const UserForm = () => {
         py={10}
         fontWeight={"bold"}
       >
-        Some Basic Info
+        We need a few things...
       </chakra.h2>
       <FormControl
         onSubmit={handleSubmit(onSubmit)}
@@ -51,15 +53,28 @@ const UserForm = () => {
         </FormLabel>
         <Stack spacing={4}>
           <InputGroup>
-            <InputLeftAddon><CurrencyCircleDollar fill="solid" size={28} /></InputLeftAddon>
-            <Input id="salary" {...register("salary", { required: true })} />
-            <InputRightAddon>AUD</InputRightAddon>
+            <InputLeftAddon bg={theme.bg.colours.primaryLight}>
+              <CurrencyCircleDollar
+                fill="solid"
+                size={28}
+                color={theme.colours.green}
+              />
+            </InputLeftAddon>
+            <Input
+              id="salary"
+              isRequired
+              {...register("salary", { required: true })}
+            />
+            <InputRightAddon bg={theme.bg.colours.primaryLight}>
+              AUD
+            </InputRightAddon>
           </InputGroup>
+          <FormErrorMessage>
+            {errors.salary &&
+              "We need to know this lol. Don't worry, we won't store this info!"}
+          </FormErrorMessage>
         </Stack>
-        <FormErrorMessage>
-          {errors.salary &&
-            "We need to know this lol. Don't worry, we won't store this info!"}
-        </FormErrorMessage>
+        <Divider py={2} />
       </FormControl>
     </Flex>
   );
