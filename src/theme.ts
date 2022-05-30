@@ -1,6 +1,7 @@
 const theme = {
   colours: {
-    green: "#03C197"
+    green: "#03C197",
+    red: "#C30010",
   },
   bg: {
     colours: {
