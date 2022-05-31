@@ -8,7 +8,7 @@ import {
   InputRightAddon,
   Stack,
 } from "@chakra-ui/react";
-import theme from "../theme";
+import bT from "../budgieTheme";
 import { UserFormFieldProps } from "../types";
 
 const UserFormField = ({
@@ -26,7 +26,7 @@ const UserFormField = ({
       <Stack spacing={4}>
         <InputGroup>
           {LeftAddon && (
-            <InputLeftAddon bg={theme.bg.colours.primaryLight}>
+            <InputLeftAddon bg={bT.bg.colours.primaryLight}>
               {React.cloneElement(LeftAddon)}
             </InputLeftAddon>
           )}
@@ -36,7 +36,7 @@ const UserFormField = ({
             {...registerProps}
           />
           {RightAddon && (
-            <InputRightAddon bg={theme.bg.colours.primaryLight}>
+            <InputRightAddon bg={bT.bg.colours.primaryLight}>
               {React.cloneElement(RightAddon)}
             </InputRightAddon>
           )}

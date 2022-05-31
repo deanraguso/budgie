@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react";
 import { Car, CurrencyCircleDollar, ForkKnife, House, Money, Wine } from "phosphor-react";
-import theme from "./theme";
+import bT from "./budgieTheme";
 import { Field } from "./types";
 
 const fieldErrors = {
@@ -22,7 +22,7 @@ export const Fields: Array<Field> = [
       <CurrencyCircleDollar
         fill="solid"
         size={28}
-        color={theme.colours.green}
+        color={bT.colours.green}
       />
     ),
     RightAddon: <Text>AUD</Text>,
@@ -36,7 +36,7 @@ export const Fields: Array<Field> = [
       <ForkKnife
         fill="solid"
         size={28}
-        color={theme.colours.red}
+        color={bT.colours.red}
       />
     ),
     RightAddon: <Text>AUD</Text>,
@@ -50,7 +50,7 @@ export const Fields: Array<Field> = [
       <Money
         fill="solid"
         size={28}
-        color={theme.colours.red}
+        color={bT.colours.red}
       />
     ),
     RightAddon: <Text>AUD</Text>,
@@ -64,7 +64,7 @@ export const Fields: Array<Field> = [
       <House
         fill="solid"
         size={28}
-        color={theme.colours.red}
+        color={bT.colours.red}
       />
     ),
     RightAddon: <Text>AUD</Text>,
@@ -78,7 +78,7 @@ export const Fields: Array<Field> = [
       <Car
         fill="solid"
         size={28}
-        color={theme.colours.red}
+        color={bT.colours.red}
       />
     ),
     RightAddon: <Text>AUD</Text>,
@@ -92,7 +92,7 @@ export const Fields: Array<Field> = [
       <Wine
         fill="solid"
         size={28}
-        color={theme.colours.red}
+        color={bT.colours.red}
       />
     ),
     RightAddon: <Text>AUD</Text>,
