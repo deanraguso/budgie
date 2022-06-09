@@ -8,8 +8,9 @@ import {
   InputRightAddon,
   Stack,
 } from "@chakra-ui/react";
-import theme from "../theme";
 import { UserFormFieldProps } from "../types";
+import colors from "../colors";
+const { light } = colors;
 
 const UserFormField = ({
   id,
@@ -18,7 +19,7 @@ const UserFormField = ({
   RightAddon,
   registerProps,
   error,
-  errorMessage
+  errorMessage,
 }: UserFormFieldProps) => {
   return (
     <>
@@ -26,9 +27,7 @@ const UserFormField = ({
       <Stack spacing={4}>
         <InputGroup>
           {LeftAddon && (
-            <InputLeftAddon bg={theme.bg.colours.primaryLight}>
-              {React.cloneElement(LeftAddon)}
-            </InputLeftAddon>
+            <InputLeftAddon>{React.cloneElement(LeftAddon)}</InputLeftAddon>
           )}
           <Input
             id={id}
@@ -36,9 +35,7 @@ const UserFormField = ({
             {...registerProps}
           />
           {RightAddon && (
-            <InputRightAddon bg={theme.bg.colours.primaryLight}>
-              {React.cloneElement(RightAddon)}
-            </InputRightAddon>
+            <InputRightAddon>{React.cloneElement(RightAddon)}</InputRightAddon>
           )}
         </InputGroup>
         <FormErrorMessage>{error && errorMessage}</FormErrorMessage>

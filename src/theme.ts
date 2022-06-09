@@ -1,14 +1,11 @@
-const theme = {
-  colours: {
-    green: "#03C197",
-    red: "#C30010",
-  },
-  bg: {
-    colours: {
-      primary: "EDF2F7",
-      primaryLight: "ABE1E7"
-    }
-  }
-}
+import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import budgieTheme from "./budgieTheme";
+
+const config: ThemeConfig = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+};
+
+const theme = extendTheme(budgieTheme, { config });
 
 export default theme;
