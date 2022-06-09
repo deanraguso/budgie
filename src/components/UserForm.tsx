@@ -43,6 +43,7 @@ const UserForm = () => {
               onSubmit={handleSubmit(onSubmit)}
               onKeyUp={triggerValidations}
               isInvalid={errors[name] != null}
+              key={name}
             >
               <UserFormField
                 id={name}

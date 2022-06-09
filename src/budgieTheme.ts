@@ -1,22 +1,24 @@
 import { ColorSchemeProps } from "./types";
 import { modeCol } from "./colors";
+import colors from "./colors";
+
+const { light } = colors;
 
 const budgieTheme = {
   colors: {
-    green: "#03C197",
-    red: "#C30010",
+    green: light.green,
+    red: light.red,
   },
   bg: {
     colours: {
-      primary: "EDF2F7",
-      primaryLight: "ABE1E7",
+      primary: light.primary,
+      primaryLight: light.primaryLight,
     },
   },
   components: {
     Button: {
       baseStyle: ({ colorMode: cM }: ColorSchemeProps) => ({
         color: modeCol(cM, "base"),
-        fontWeight: "bold",
       }),
     },
   },
