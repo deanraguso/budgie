@@ -10,8 +10,8 @@ const colors: { [key: string]: { [key: string]: string } } = {
     base: "#FFF",
     green: "#fc3e68",
     red: "#3cffef",
-    primary: "#EDF2F7",
-    primaryLight: "#ABE1E7",
+    primary: "#F00",
+    primaryLight: "#F00",
   },
 };
 

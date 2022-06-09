@@ -21,6 +21,13 @@ const budgieTheme = {
         color: modeCol(cM, "base"),
       }),
     },
+    Stat: {
+      baseStyle: ({ colorMode: cM }: ColorSchemeProps) => ({
+        container: {
+          border: `1px solid ${modeCol(cM, "primaryLight")}`,
+        },
+      }),
+    },
   },
 };
 
