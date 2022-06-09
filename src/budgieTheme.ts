@@ -1,6 +1,5 @@
-interface Props {
-  colorMode: "light" | "dark" | null;
-}
+import { ColorSchemeProps } from "./types";
+import { modeCol } from "./colors";
 
 const budgieTheme = {
   colors: {
@@ -15,8 +14,8 @@ const budgieTheme = {
   },
   components: {
     Button: {
-      baseStyle: ({ colorMode }: Props) => ({
-        color: colorMode === "light" ? "black" : "white",
+      baseStyle: ({ colorMode: cM }: ColorSchemeProps) => ({
+        color: modeCol(cM, "base"),
         fontWeight: "bold",
       }),
     },

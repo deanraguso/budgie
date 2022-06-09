@@ -8,6 +8,4 @@ const config: ThemeConfig = {
 
 const theme = extendTheme(budgieTheme, { config });
 
-console.log(theme);
-
 export default theme;

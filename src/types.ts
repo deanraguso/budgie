@@ -35,3 +35,7 @@ export interface UserFormFieldProps {
   LeftAddon?: any;
   RightAddon?: any;
 }
+
+export interface ColorSchemeProps {
+  colorMode: string;
+}
