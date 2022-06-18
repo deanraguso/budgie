@@ -1,6 +1,5 @@
 import { Text } from "@chakra-ui/react";
 import { Car, CurrencyCircleDollar, ForkKnife, House, Money, Wine } from "phosphor-react";
-import bT from "./budgieTheme";
 import { Field } from "./types";
 import colors from "./colors";
 const { light } = colors;

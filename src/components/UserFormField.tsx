@@ -9,8 +9,6 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { UserFormFieldProps } from "../types";
-import colors from "../colors";
-const { light } = colors;
 
 const UserFormField = ({
   id,

@@ -1,5 +1,5 @@
-import { chakra, Divider, Flex, FormControl, Text } from "@chakra-ui/react";
 import React from "react";
+import { chakra, Divider, Flex, FormControl } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Fields from "../Fields";
 import { Field, UserFormInputs } from "../types";
