@@ -1,9 +1,13 @@
 import React from "react";
 import { chakra, Divider, Flex, FormControl } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import Fields from "../Fields";
 import { Field, UserFormInputs } from "../types";
 import UserFormField from "./UserFormField";
+
+const schema = yup.object().shape({});
 
 const UserForm = () => {
   const {
@@ -11,9 +15,11 @@ const UserForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<UserFormInputs>();
-  const onSubmit: SubmitHandler<UserFormInputs> = (data) => console.log(data);
+  } = useForm<UserFormInputs>({
+    resolver: yupResolver(schema),
+  });
 
+  const onSubmit: SubmitHandler<UserFormInputs> = (data) => console.log(data);
 
   const triggerValidations = () => {
     trigger();
@@ -38,8 +44,8 @@ const UserForm = () => {
             LeftAddon,
             RightAddon,
             required,
-          }: Field) =>
-            (<FormControl
+          }: Field) => (
+            <FormControl
               onSubmit={handleSubmit(onSubmit)}
               onKeyUp={triggerValidations}
               isInvalid={errors[name] != null}
@@ -55,7 +61,8 @@ const UserForm = () => {
                 RightAddon={RightAddon}
               />
               <Divider py={2} />
-            </FormControl>)
+            </FormControl>
+          )
         )}
       </>
     </Flex>
