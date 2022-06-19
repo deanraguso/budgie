@@ -1,7 +1,16 @@
 import { Text } from "@chakra-ui/react";
-import { Car, CurrencyCircleDollar, ForkKnife, House, Money, Wine } from "phosphor-react";
+import {
+  Car,
+  CurrencyCircleDollar,
+  ForkKnife,
+  House,
+  Money,
+  Wine,
+} from "phosphor-react";
 import { Field } from "./types";
 import colors from "./colors";
+import * as yup from "yup";
+
 const { light } = colors;
 
 const fieldErrors = {
@@ -13,6 +22,15 @@ const fieldErrors = {
   fun: "How much money do you spend on non-essentials or spontaneously?",
 };
 
+export const schema = yup.object().shape({
+  salary: yup.number().required(),
+  groceries: yup.number().required(),
+  bills: yup.number().required(),
+  rent: yup.number().required(),
+  vehicle: yup.number().required(),
+  fun: yup.number().required(),
+});
+
 export const Fields: Array<Field> = [
   {
     name: "salary",
@@ -20,11 +38,7 @@ export const Fields: Array<Field> = [
     required: true,
     errorMessage: fieldErrors.salary,
     LeftAddon: (
-      <CurrencyCircleDollar
-        fill="solid"
-        size={28}
-        color={light.green}
-      />
+      <CurrencyCircleDollar fill="solid" size={28} color={light.green} />
     ),
     RightAddon: <Text>AUD</Text>,
   },
@@ -33,13 +47,7 @@ export const Fields: Array<Field> = [
     label: fieldErrors.groceries,
     required: true,
     errorMessage: fieldErrors.groceries,
-    LeftAddon: (
-      <ForkKnife
-        fill="solid"
-        size={28}
-        color={light.red}
-      />
-    ),
+    LeftAddon: <ForkKnife fill="solid" size={28} color={light.red} />,
     RightAddon: <Text>AUD</Text>,
   },
   {
@@ -47,13 +55,7 @@ export const Fields: Array<Field> = [
     label: fieldErrors.bills,
     required: true,
     errorMessage: fieldErrors.bills,
-    LeftAddon: (
-      <Money
-        fill="solid"
-        size={28}
-        color={light.red}
-      />
-    ),
+    LeftAddon: <Money fill="solid" size={28} color={light.red} />,
     RightAddon: <Text>AUD</Text>,
   },
   {
@@ -61,13 +63,7 @@ export const Fields: Array<Field> = [
     label: fieldErrors.rent,
     required: true,
     errorMessage: fieldErrors.rent,
-    LeftAddon: (
-      <House
-        fill="solid"
-        size={28}
-        color={light.red}
-      />
-    ),
+    LeftAddon: <House fill="solid" size={28} color={light.red} />,
     RightAddon: <Text>AUD</Text>,
   },
   {
@@ -75,13 +71,7 @@ export const Fields: Array<Field> = [
     label: fieldErrors.vehicle,
     required: true,
     errorMessage: fieldErrors.vehicle,
-    LeftAddon: (
-      <Car
-        fill="solid"
-        size={28}
-        color={light.red}
-      />
-    ),
+    LeftAddon: <Car fill="solid" size={28} color={light.red} />,
     RightAddon: <Text>AUD</Text>,
   },
   {
@@ -89,13 +79,7 @@ export const Fields: Array<Field> = [
     label: fieldErrors.fun,
     required: true,
     errorMessage: fieldErrors.fun,
-    LeftAddon: (
-      <Wine
-        fill="solid"
-        size={28}
-        color={light.red}
-      />
-    ),
+    LeftAddon: <Wine fill="solid" size={28} color={light.red} />,
     RightAddon: <Text>AUD</Text>,
   },
 ];

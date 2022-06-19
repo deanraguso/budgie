@@ -2,12 +2,9 @@ import React from "react";
 import { chakra, Divider, Flex, FormControl } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import Fields from "../Fields";
+import Fields, { schema } from "../Fields";
 import { Field, UserFormInputs } from "../types";
 import UserFormField from "./UserFormField";
-
-const schema = yup.object().shape({});
 
 const UserForm = () => {
   const {
@@ -52,7 +49,7 @@ const UserForm = () => {
               key={name}
             >
               <UserFormField
-                id={name}
+                name={name}
                 label={label}
                 registerProps={register(name, { required: required })}
                 error={errors[name]}

@@ -11,7 +11,7 @@ import {
 import { UserFormFieldProps } from "../types";
 
 const UserFormField = ({
-  id,
+  name,
   label,
   LeftAddon,
   RightAddon,
@@ -21,14 +21,14 @@ const UserFormField = ({
 }: UserFormFieldProps) => {
   return (
     <>
-      <FormLabel htmlFor={id}>{label}</FormLabel>
+      <FormLabel htmlFor={name}>{label}</FormLabel>
       <Stack spacing={4}>
         <InputGroup>
           {LeftAddon && (
             <InputLeftAddon>{React.cloneElement(LeftAddon)}</InputLeftAddon>
           )}
           <Input
-            id={id}
+            id={name}
             {...((registerProps.required && { isRequired: true }) as any)}
             {...registerProps}
           />

@@ -27,7 +27,7 @@ export interface Field {
 }
 
 export interface UserFormFieldProps {
-  id: string;
+  name: string;
   label: string;
   registerProps: UseFormRegisterReturn;
   error: FieldError | undefined;
